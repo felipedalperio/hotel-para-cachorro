@@ -1,0 +1,88 @@
+﻿@model HotelPet.Models.ViewModels.JuridicaFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Pessoa Jurídica";
+}
+<body style="background-image:url('https://media.istockphoto.com/vectors/abstract-polygonal-background-with-connected-lines-and-dots-pattern-vector-id1003422240')">
+    <center><h2>@ViewData["Title"]</h2></center>
+    <style>
+        .form-control {
+            border-radius: 4px;
+            height: 40px;
+            border: 1px solid #000000;
+        }
+    </style>
+    <hr />
+    <div class="row" style="padding:40px; border-radius:10px; box-shadow:10px 10px 8px 10px #888888;background-color:white">
+
+        @using (Html.BeginForm("CreateHotel", "PessoaJuridicas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {   
+         <hr />
+            <center><h3>Informações do Hotel</h3></center>
+            <hr />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Hotel.Nome" class="control-label"></label>
+                    <input asp-for="Hotel.Nome" class="form-control" placeholder="Nome do Hotel" />
+                    <span asp-validation-for="Hotel.Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hotel.Preco" class="control-label"></label>
+                    <input asp-for="Hotel.Preco" class="form-control" placeholder="Preço do Hotel" />
+                    <span asp-validation-for="Hotel.Preco" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hotel.Descricao" class="control-label"></label>
+                    <input asp-for="Hotel.Descricao" class="form-control" placeholder="Descrição do Hotel" />
+                    <span asp-validation-for="Hotel.Descricao" class="text-danger"></span>
+                </div>
+                <label asp-for="Hotel.Imagem" class="control-label"></label>
+                <input type="file" name="file" class="btn btn-block btn-primary" />
+                <hr />
+                <center><h3>Endereço do Hotel</h3></center>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="Endereco.Cep" class="control-label"></label>
+                    <input asp-for="Endereco.Cep" class="form-control" placeholder="Cep do Hotel" />
+                    <span asp-validation-for="Endereco.Cep" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Endereco.Cidade" class="control-label"></label>
+                    <input asp-for="Endereco.Cidade" class="form-control" placeholder="Cidade do Hotel" />
+                    <span asp-validation-for="Endereco.Cidade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Estado" class="control-label"></label>
+                    <input asp-for="Endereco.Estado" class="form-control" placeholder="Estado do Hotel" />
+                    <span asp-validation-for="Endereco.Estado" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Numero" class="control-label"></label>
+                    <input asp-for="Endereco.Numero" class="form-control" placeholder="Numero do Hotel" />
+                    <span asp-validation-for="Endereco.Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Rua" class="control-label"></label>
+                    <input asp-for="Endereco.Rua" class="form-control" placeholder="Rua do Hotel" />
+                    <span asp-validation-for="Endereco.Rua" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top:30px">
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-block btn-lg btn-danger" />
+                </div>
+            </div>
+
+        }
+    </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Voltar</a>
+    </div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

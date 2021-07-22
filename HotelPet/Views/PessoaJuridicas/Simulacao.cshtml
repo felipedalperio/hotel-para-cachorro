@@ -1,0 +1,86 @@
+﻿@model HotelPet.Models.Simulacao;
+@{
+    ViewData["Title"] = "Simulacao";
+}
+<!-- Preço total: @ViewBag.Simul-->
+<center><h3>SIMULAÇÃO DE PREÇO</h3></center><br />
+<style>
+    
+    td{
+        text-align: center;
+        font-size:16px;
+        padding:10px;
+    }
+    .titulo {
+        font-size: 18px;
+    }
+    h5{
+        text-align: center;
+        padding-bottom: 10px;
+    }
+</style>
+<div class="row" style="margin-top:20px">
+
+    <div class="col-md-6" style=" margin-bottom: 10px; margin-bottom:10px">
+        <div style=" margin-bottom: 10px">
+            <img class="img-responsive img-rounded" src="@ViewBag.Hotel.Imagem" style=" width:100%;" />
+        </div>
+    </div>
+    <div class="col-md-6" style=" margin-bottom: 10px; margin-bottom:10px">
+        <h5><strong><p>Hotel escolhido:</p></strong></h5>
+        <table width="100%">
+            <tr>
+                <td class="titulo">Nome do hotel</td>
+                <td class="titulo">Preço</td>
+                <td class="titulo">Descrição</td>
+            </tr>
+            <tr>
+                <td>Hotel: @ViewBag.Hotel.Nome</td>
+                <td>Preço: R$ @ViewBag.Hotel.Preco</td>
+                <td> Descrição: @ViewBag.Hotel.Descricao</td>
+
+            </tr>
+        </table>
+
+        <hr /><br />
+        <h5><strong><p>Pets do Usuário logado:</p></strong></h5>
+        @{
+
+
+        <table width="100%">
+            <tr>
+                <td class="titulo">Nome</td>
+                <td class="titulo">Tipo</td>
+                <td class="titulo">Tamanho</td>
+            </tr>
+            @foreach (var pets in ViewBag.Pets)
+            {
+
+                <tr>
+                    <td>@pets.Nome</td>
+                    <td>@pets.Tipo</td>
+                    <td>@pets.Tamanho</td>
+                </tr>
+
+            }
+        </table>
+        }
+        <br />
+        <hr /><br />
+
+
+
+    </div>
+    <div  class="col-md-12">
+        <table border="1" width="100%">
+            <tr>
+                <td><h4>O pet ficará <strong> @ViewBag.Simulacao.QntsDias</strong> dias hospedado</h4></td>
+
+            </tr>
+            <tr>
+                <td style="background-color:#D4F9D2"><h3 style="padding-bottom: 13px">Valor Total: <strong> @ViewBag.Simulacao.Calcular()</strong> R$ </h3></center></td>
+            </tr>
+
+        </table>
+    </div>
+</div>

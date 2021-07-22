@@ -1,0 +1,36 @@
+﻿
+
+@{
+    
+    ViewData["Title"] = "Minhas Postagens";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- <p>
+    <a asp-action="Create">Create New</a>
+</p> -->
+<div class="row">
+    
+    
+    <center>
+        @foreach (var post in ViewBag.Hotel)
+        {
+            @if (ViewBag.usuarioLogadoId == post.PessoaJuridica.Id) {
+            <div class="col-md-6" style=" margin-bottom: 10px; margin-bottom:10px">
+                <div style=" margin-bottom: 10px">
+                    <img class="img-responsive img-rounded" src="@post.Imagem" style="height: 350px;margin-bottom:5px" />
+                    
+                  
+                    <div class="col-md-12">
+                        <form action="~/pessoaJuridicas/Delete/@post.Id" method="post">
+                            <input type="submit" class="btn btn-block btn-lg btn-danger" value="Deletar" />
+                        </form>
+                    </div>
+                </div>
+                </div>
+            }
+        }
+        </center>
+    
+</div>

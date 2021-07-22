@@ -1,0 +1,28 @@
+﻿@{
+}
+
+<body style="background-image:url('https://media.istockphoto.com/vectors/abstract-polygonal-background-with-connected-lines-and-dots-pattern-vector-id1003422240')">
+    <center><h2>@ViewData["Title"]</h2></center>
+    <style>
+        .form-control {
+            border-radius: 4px;
+            height: 40px;
+            border: 1px solid #000000;
+        }
+    </style>
+
+    <div class="row" style="margin-top:10%;margin-bottom:30%">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="padding:40px; border-radius:10px; box-shadow:10px 10px 8px 10px #888888;background-color:white">
+            <center><h1 style="font-weight: bold;">Login</h1></center>
+            <form action="AuthenticateSignIn" method="post">
+                <input type="text" name="username" class="form-control" placeholder="Username" /><br />
+                <input type="password" name="password" class="form-control " placeholder="Password" /><br />
+                <input type="submit" value="Login" class="btn btn-block btn-primary" />
+                <br /><br />
+                @TempData["Message"]
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>

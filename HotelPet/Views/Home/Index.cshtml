@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+
+    if (ViewBag.usuarioLogado != null)
+    {
+        ViewData["BemVindo"] = "BemVindo: " + ViewBag.usuarioLogado;
+    }
+    if (ViewBag.usuarioLogadoCpf != null)
+    {
+        ViewData["Cpf"] = "Cpf: " + ViewBag.usuarioLogadoCpf;
+    }
+    if (ViewBag.usuarioLogadoCnpj != null)
+    {
+        ViewData["Cnpj"] = "Cnpj: " + ViewBag.usuarioLogadoCnpj;
+    }
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet" >
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&display=swap" rel="stylesheet">
+
+<style>
+    .titulo {
+        font-family: 'Piedra', cursive;
+        position: relative;
+        left: 30%;
+        display: block;
+        width: 400px;
+        height: 60px;
+        border: 1px solid #8a1;
+        font: normal 30px/60px 'Rye';
+        text-align: center;
+        color: #451;
+        background: #9b2;
+        border-radius: 4px;
+        box-shadow: 0 0 30px rgba(0,0,0,.15) inset, 0 6px 10px rgba(0,0,0,.15);
+    }
+
+        .titulo::before,
+        .titulo::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: -70px;
+            top: 24px;
+            display: block;
+            width: 40px;
+            height: 0px;
+            border: 30px solid #9b2;
+            border-right: 20px solid #791;
+            border-bottom-color: #94b81e;
+            border-left-color: transparent;
+            transform: rotate(-5deg);
+        }
+
+        .titulo::after {
+            left: auto;
+            right: -70px;
+            border-left: 20px solid #791;
+            border-right: 30px solid transparent;
+            transform: rotate(5deg);
+        }
+    .hotel {
+        font-family: 'Noto Sans HK', sans-serif;
+    }
+    .hotelPreco {     
+        font-family: 'Acme', sans-serif;
+    }
+</style>
+
+<h1 class="titulo"><center>Bem-vindo ao TriDog </center> </h1><br />
+
+<hr><br />
+
+<div class="row" style="margin-top:20px">
+    <center>
+        @foreach (var post in ViewBag.Hotel)
+        {
+         <a asp-controller="PessoaJuridicas" asp-action="Visualizar" asp-route-id="@post.Id">
+     <div class="col-md-6" style=" margin-bottom: 10px; margin-bottom:10px">
+         <div style=" margin-bottom: 10px">
+            <img class="img-responsive img-rounded" src="@post.Imagem" style="height: 300px; width:80%; margin-bottom:5px" />
+            
+            <div style="font-size:30px; color:black" class="hotel">Nome do Hotel: @post.Nome</div>
+             <div style="font-size:20px" class="hotelPreco">Preco: <h style="color:green;margin-bottom:10px">R$ @post.Preco <h /></div>
+                   
+
+        </div>
+    </div>
+    </a>
+}
+    </center>
+
+</div>
+
+<!--
+<div class="row">
+    <div class="col-md-3">
+        <h2>Application uses</h2>
+        <ul>
+            <li>Sample pages using ASP.NET Core MVC</li>
+            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>How to</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Overview</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Run &amp; Deploy</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+        </ul>
+    </div>
+</div> -->

@@ -1,0 +1,97 @@
+﻿@model HotelPet.Models.ViewModels.FisicaFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Pessoa Física";
+}
+<body style="background-image:url('https://media.istockphoto.com/vectors/abstract-polygonal-background-with-connected-lines-and-dots-pattern-vector-id1003422240')">
+  <style>
+      .form-control {
+          border-radius: 4px;
+          height:40px;
+          border: 1px solid #000000;
+      }
+  </style>
+    <center><h2>@ViewData["Title"]</h2></center>
+
+    <hr />
+    <div class="row" style="padding:40px; border-radius:10px; box-shadow:10px 10px 8px 10px #888888;background-color:white">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <hr />
+                <center><h3>Informações da Pessoa Física</h3></center>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Cpf" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Cpf" class="form-control" placeholder="Cpf" />
+                    <span asp-validation-for="PessoaFisica.Cpf" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Nome" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Nome" class="form-control" placeholder="Nome" />
+                    <span asp-validation-for="PessoaFisica.Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Email" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Email" class="form-control" placeholder="Email" type="email"/>
+                    <span asp-validation-for="PessoaFisica.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Tel" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Tel" class="form-control" placeholder="Tel" />
+                    <span asp-validation-for="PessoaFisica.Tel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Login" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Login" class="form-control" placeholder="Nick" />
+                    <span asp-validation-for="PessoaFisica.Login" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PessoaFisica.Senha" class="control-label"></label>
+                    <input asp-for="PessoaFisica.Senha" class="form-control" placeholder="Senha" type="password" />
+                    <span asp-validation-for="PessoaFisica.Senha" class="text-danger"></span>
+                </div>
+</div>
+        <div class="col-md-6">
+            <hr />
+            <center><h3>Informações do Pet</h3></center>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Pet.Nome" class="control-label"></label>
+                <input asp-for="Pet.Nome" class="form-control" placeholder="Nome do Pet" />
+                <span asp-validation-for="Pet.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.Raca" class="control-label"></label>
+                <input asp-for="Pet.Raca" class="form-control" placeholder="Raça" />
+                <span asp-validation-for="Pet.Raca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.Tipo" class="control-label"></label>
+                <input asp-for="Pet.Tipo" class="form-control" placeholder="Gato | Cachorro" />
+                <span asp-validation-for="Pet.Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.Tamanho" class="control-label"></label>
+                <input asp-for="Pet.Tamanho" class="form-control" placeholder="Pequeno | Medio | Grande" />
+                <span asp-validation-for="Pet.Tamanho" class="text-danger"></span>
+            </div>
+          
+        </div>
+        <div class="col-md-12">
+            <div class="form-group" style="margin-top:30px">
+                <input type="submit" value="Cadastrar" class="btn btn-block btn-lg btn-primary" />
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Voltar</a>
+    </div>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

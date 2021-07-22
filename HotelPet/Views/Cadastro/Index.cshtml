@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+
+}
+
+<style>
+
+    img {
+        transition: all 0.2s ease-out;
+    }
+
+        img:hover {
+            cursor: pointer;
+            animation: bounce .4s;
+          
+            filter: saturate(400%);
+        }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="col-md-6">
+                <center><h2>Pessoa Física</h2></center>
+                <a asp-area="" asp-controller="PessoaFisicas" asp-action="Create" class="btn btn-block" ><img src="~/images/pessoaFisica.jpg" style="width:500px" /></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="col-md-6">
+                    <center><h2>Pessoa Jurídica</h2></center>
+                    <a asp-area="" asp-controller="PessoaJuridicas" asp-action="Create" class="btn btn-block"><img src="~/images/pessoaJuridica.jpg" style="width:500px" /></a>
+</div>
+            </div>
+        </div>
+    </div>
